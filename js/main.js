@@ -16,20 +16,25 @@ const app = new Vue({
   },
   methods: {
     nextImg: function () {
-      this.imageIndex ++
+      this.imageIndex++;
       if (this.imageIndex >= this.images.length) {
-        this.imageIndex = 0
+        this.imageIndex = 0;
       }
     },
     prevImg: function () {
-      this.imageIndex--
+      this.imageIndex--;
       if (this.imageIndex < 0) {
-        this.imageIndex = this.images.length - 1
+        this.imageIndex = this.images.length - 1;
       }
     },
     selectBulletImage: function (index) {
-      this.imageIndex = index
+      this.imageIndex = index;
     }
+  },
+  mounted: function () {
+      setInterval(() => {
+        this.nextImg()
+       }, 3000);
   }
-})
+});
 
