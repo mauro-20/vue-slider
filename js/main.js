@@ -12,7 +12,8 @@ const app = new Vue({
       'https://media.gettyimages.com/photos/colorful-holiday-carousel-horse-xxxlarge-picture-id171345759?k=20&m=171345759&s=612x612&w=0&h=jiumpU99jkZBU_1xIvrwrvRquk_AodiTfGPnD0s_9kA=',
       'https://media.gettyimages.com/photos/carefree-people-having-fun-on-chain-swing-ride-in-amusement-park-picture-id1179330660?k=20&m=1179330660&s=612x612&w=0&h=eaLuq0AXa_4amVqy2W7JV96tSWrL3UE5nTw3aYOl5ko='
     ],
-    imageIndex: 0
+    imageIndex: 0,
+    autoPlay: null
   },
   methods: {
     nextImg: function () {
@@ -29,12 +30,16 @@ const app = new Vue({
     },
     selectBulletImage: function (index) {
       this.imageIndex = index;
+    },
+    startAutoPlay: function () {
+      this.autoPlay = setInterval(this.nextImg, 3000);
+    },
+    stopAutoplay: function () {
+      clearInterval(this.autoPlay)
     }
   },
   mounted: function () {
-      setInterval(() => {
-        this.nextImg()
-       }, 3000);
-  }
+    this.startAutoPlay();
+  },
 });
 

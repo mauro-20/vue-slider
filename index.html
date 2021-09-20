@@ -15,7 +15,7 @@
 <body>
 
   <div id="root">
-    <div class="carosel-wrapper">
+    <div class="carosel-wrapper" @mouseover="stopAutoplay" @mouseleave="startAutoPlay">
       <a class="carosel-prev" @click='prevImg'>
         <i class="fas fa-chevron-left"></i>
       </a>
